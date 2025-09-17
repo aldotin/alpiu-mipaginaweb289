@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Costa</title>
+  <link rel="stylesheet" href="costa.css">
+  <style>
+    /* Estilos básicos */
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin: 0;
+      background: #f4f4f4;
+    }
+
+    header {
+      padding: 20px;
+      background: #006994;
+      color: white;
+    }
+
+    .slideshow {
+      margin: 20px auto;
+      width: 80%;
+      max-width: 600px;
+    }
+
+    #imagen {
+      transition: opacity 0.5s ease-in-out;
+      max-width: 100%;
+      height: auto;
+      display: block;
+      margin: 0 auto;
+    }
+
+    footer {
+      margin-top: 20px;
+      padding: 15px;
+      background: #222;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Danzas Típicas de la Costa Peruana</h1>
+    <p>
+      La costa del Perú se caracteriza por una gran riqueza cultural que mezcla influencias indígenas, africanas y españolas.
+      Sus danzas reflejan alegría, ritmo y energía, muchas de ellas ligadas a fiestas religiosas, celebraciones agrícolas o al folclore popular.
+    </p>
+  </header>
+
+  <div class="slideshow">
+    <!-- Comienza mostrando la primera imagen -->
+    <img id="imagen" src="Costa/beba.jpg" alt="Foto actual">
+  </div>
+
+  <script>
+    // Lista de imágenes (⚠️ renombra las que tienen "ñ" a "n")
+    const imagenes = [
+      "Costa/beba.jpg",
+      "Costa/chi.jpg",
+      "Costa/gas.jpg",
+      "Costa/jay.jpg",
+      "Costa/nana.jpg", // antes ñaña.jpg
+      "Costa/nini.jpg", // antes ñiñi.jpg
+      "Costa/ono.jpg",  // antes oño.jpg
+      "Costa/opo.jpg",
+      "Costa/tare.jpg",
+      "Costa/trio.jpg"
+    ];
+
+    let indice = 0;
+    const img = document.getElementById("imagen");
+
+    function mostrarSiguienteFoto() {
+      img.style.opacity = 0;
+
+      setTimeout(() => {
+        img.src = imagenes[indice];
+        img.style.opacity = 1;
+
+        indice = (indice + 1) % imagenes.length;
+      }, 500);
+    }
+
+    // Cambiar imagen cada 3 segundos
+    setInterval(mostrarSiguienteFoto, 3000);
+  </script>
+
+  <footer>
+    <p>Aldo Huancapaza Tintaya</p>
+  </footer>
+</body>
+</html>

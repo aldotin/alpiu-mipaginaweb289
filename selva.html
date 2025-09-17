@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Selva</title>
+  <link rel="stylesheet" href="selva.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin: 0;
+      background: #f0fff0;
+    }
+
+    header {
+      padding: 20px;
+      background: #228b22;
+      color: white;
+    }
+
+    .slideshow {
+      margin: 20px auto;
+      width: 80%;
+      max-width: 600px;
+    }
+
+    #imagen {
+      transition: opacity 0.5s ease-in-out;
+      max-width: 100%;
+      height: auto;
+      display: block;
+      margin: 0 auto;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Danzas Típicas de la Selva Peruana</h1>
+    <p>
+      La selva peruana destaca por su inmensa biodiversidad y por ser el hogar de numerosos pueblos indígenas que conservan sus tradiciones ancestrales. 
+      Sus danzas y rituales están profundamente conectados con la naturaleza y la espiritualidad, celebrando la armonía con el bosque y sus recursos.
+    </p>
+  </header>
+
+  <div class="slideshow">
+    <!-- Primera imagen -->
+    <img id="imagen" src="Selva/eri.jpg" alt="Foto actual">
+  </div>
+
+  <script>
+    // Lista de imágenes (asegúrate que la carpeta se llame "Selva" con S mayúscula)
+    const imagenes = [
+      "Selva/care.jpg",
+      "Selva/eri.jpg",
+      "Selva/fare.jpg",
+      "Selva/noru.jpg",
+      "Selva/rete.jpg",
+      "Selva/sere.jpg",
+      "Selva/arto.jpg"
+    ];
+
+    let indice = 0;
+    const img = document.getElementById("imagen");
+
+    function mostrarSiguienteFoto() {
+      img.style.opacity = 0;
+
+      setTimeout(() => {
+        img.src = imagenes[indice];
+        img.style.opacity = 1;
+
+        indice = (indice + 1) % imagenes.length;
+      }, 500);
+    }
+
+    // Cambiar imagen cada 3 segundos
+    setInterval(mostrarSiguienteFoto, 3000);
+  </script>
+</body>
+</html>
